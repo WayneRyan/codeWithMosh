@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 20px;
+}
+
+.form-group {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+label {
+  margin-top: 10px;
+}
+
+.form-control.ng-touched.ng-invalid {
+  border: 2px solid red;
+}

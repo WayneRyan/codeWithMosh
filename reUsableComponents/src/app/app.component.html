@@ -1,0 +1,7 @@
+<app-favorite [is-favorite]="post.isFavorite" (change)="onFavoriteChanged($event)"></app-favorite><br>
+<like
+  [likesCount]="tweet.likesCount"
+  [isActive]="tweet.isLiked"
+></like><br>
+<input type="text" appInputFormat="'uppercase'"><br>
+<zippy title="Shipping Details">Shipping Details Content</zippy>
