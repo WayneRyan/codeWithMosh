@@ -16,47 +16,50 @@ export class PostComponentComponent implements OnInit {
   createPost(input: HTMLInputElement) {
     let post = {title: input.value, id: undefined}
     input.value = '';
-    this.service.createPost(post).subscribe({
+    this.service.create(post).subscribe({
       next: response => {
+        console.log("I got here");
         post.id = response.id;
         this.posts?.splice(0, 0, post);
       },
-      error: message => {
-        console.log(message);
+      error: (error: Error) => {
+        console.log(error.message);
       }
     });
   }
 
   updatePost(post: any) {
-    this.service.updatePost(post.id).subscribe({
+    this.service.update(post.id).subscribe({
       next: response => {
+        console.log("I got here");
         console.log(response);
       },
-      error: message => {
-        console.log(message);
+      error: (error: Error) => {
+        console.log(error.message);
       }
     });
   }
 
   deletePost(post: any) {
-    this.service.deletePost(post.id).subscribe({
+    this.service.delete(post.id).subscribe({
       next: response => {
+        console.log("I got here");
         console.log(response);
         this.posts?.splice(this.posts?.indexOf(post), 1);
       },
-      error: message => {
-        console.log(message);
+      error: (error: Error) => {
+        console.log(error.message);
       }
     });
   }
 
   ngOnInit(): void {
-    this.service.getPosts().subscribe({
+    this.service.getAll().subscribe({
       next: response => {
         this.posts = response;
       },
-      error: message => {
-        console.log(message);
+      error: (error: Error) => {
+        console.log(error.message);
       }
     });
   }
